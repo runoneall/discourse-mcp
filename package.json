@@ -1,0 +1,37 @@
+{
+    "name": "discourse-mcp",
+    "version": "1.0.0",
+    "description": "discourse mcp based on discourse user api",
+    "main": "src/index.ts",
+    "files": [
+        "build"
+    ],
+    "scripts": {
+        "build": "tsc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/runoneall/discourse-mcp.git"
+    },
+    "keywords": [
+        "discourse",
+        "mcp"
+    ],
+    "type": "module",
+    "bin": {
+        "discourse-mcp": "./build/index.js"
+    },
+    "bugs": {
+        "url": "https://github.com/runoneall/discourse-mcp/issues"
+    },
+    "homepage": "https://github.com/runoneall/discourse-mcp#readme",
+    "dependencies": {
+        "@modelcontextprotocol/server": "^2.2.0",
+        "axios": "^1.20.0",
+        "zod": "^4.6.5"
+    },
+    "devDependencies": {
+        "@types/node": "^26.6.3",
+        "typescript": "^7.0.2"
+    }
+}
