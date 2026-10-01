@@ -1,2 +1,3 @@
 # discourse-mcp
-discourse mcp  based on discourse user api
+
+discourse mcp based on discourse user api
