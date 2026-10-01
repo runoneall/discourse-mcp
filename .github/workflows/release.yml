@@ -1,0 +1,44 @@
+name: release
+
+on:
+    workflow_dispatch:
+
+permissions:
+    contents: write
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout
+              uses: actions/checkout@main
+
+            - name: setup node
+              uses: actions/setup-node@main
+              with:
+                  node-version: 20
+
+            - name: install dependencies
+              run: npm ci
+
+            - name: run build
+              run: npm run build
+
+            - name: rename dist
+              run: mv build/index.js build/discourse-mcp.js
+
+            - name: get time
+              run: echo "RELEASE_TIME=$(date +'%Y%m%d-%H%M%S')" >> $GITHUB_ENV
+
+            - name: create release
+              uses: softprops/action-gh-release@master
+
+              with:
+                  tag_name: ${{ env.RELEASE_TIME }}
+                  name: ${{ env.RELEASE_TIME }}
+                  draft: false
+                  prerelease: false
+                  files: build/*
+
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

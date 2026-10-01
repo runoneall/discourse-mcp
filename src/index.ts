@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { CallToolResult, McpServer } from '@modelcontextprotocol/server'
 import { StdioServerTransport } from '@modelcontextprotocol/server/stdio'
 import { z } from 'zod'
